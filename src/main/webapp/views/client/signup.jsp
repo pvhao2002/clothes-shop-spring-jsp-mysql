@@ -17,32 +17,20 @@
     <!-- Web Font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
           rel="stylesheet">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="${link_css}/bootstrap.css">
-    <!-- Magnific Popup -->
-    <link rel="stylesheet" href="${link_css}/magnific-popup.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="${link_css}/font-awesome.css">
-    <!-- Fancybox -->
-    <link rel="stylesheet" href="${link_css}/jquery.fancybox.min.css">
-    <!-- Themify Icons -->
-    <link rel="stylesheet" href="${link_css}/themify-icons.css">
-    <!-- Nice Select CSS -->
-    <link rel="stylesheet" href="${link_css}/niceselect.css">
-    <!-- Animate CSS -->
-    <link rel="stylesheet" href="${link_css}/animate.css">
-    <!-- Flex Slider CSS -->
-    <link rel="stylesheet" href="${link_css}/flex-slider.min.css">
-    <!-- Owl Carousel -->
-    <link rel="stylesheet" href="${link_css}/owl-carousel.css">
-    <!-- Slicknav -->
-    <link rel="stylesheet" href="${link_css}/slicknav.min.css">
-
-    <!-- Eshop StyleSheet -->
-    <link rel="stylesheet" href="${link_css}/reset.css">
-    <link rel="stylesheet" href="${link_css}/style.css">
-    <link rel="stylesheet" href="${link_css}/responsive.css">
-    <link rel="stylesheet" href="${link_css}/login.css">
+    <link rel="stylesheet" href="${link_css}/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="${link_css}/magnific-popup.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${link_css}/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="${link_css}/jquery.fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${link_css}/themify-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="${link_css}/niceselect.css" rel="stylesheet">
+    <link rel="stylesheet" href="${link_css}/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="${link_css}/flex-slider.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${link_css}/owl-carousel.css" rel="stylesheet">
+    <link rel="stylesheet" href="${link_css}/slicknav.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${link_css}/reset.css" rel="stylesheet">
+    <link rel="stylesheet" href="${link_css}/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="${link_css}/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="${link_css}/login.css" rel="stylesheet">
 </head>
 <body>
 
@@ -149,7 +137,6 @@
 <!-- Bootstrap JS -->
 <script src="${link_js}/bootstrap.min.js"></script>
 <!-- Color JS -->
-<script src="${link_js}/colors.js"></script>
 <!-- Slicknav JS -->
 <script src="${link_js}/slicknav.min.js"></script>
 <!-- Owl Carousel JS -->

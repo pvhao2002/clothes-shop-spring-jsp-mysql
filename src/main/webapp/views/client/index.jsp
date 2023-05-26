@@ -6,11 +6,10 @@
 <c:set var="link_js" value="/web/js"/>
 <c:set var="link_img" value="/web/images"/>
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 <head>
     <!-- Meta Tag -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name='copyright' content=''>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,30 +22,30 @@
           rel="stylesheet">
     <!-- StyleSheet -->
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="${link_css}/bootstrap.css">
+    <link href="${link_css}/bootstrap.css" rel="stylesheet">
     <!-- Magnific Popup -->
-    <link rel="stylesheet" href="${link_css}/magnific-popup.min.css">
+    <link href="${link_css}/magnific-popup.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="${link_css}/font-awesome.css">
+    <link  href="${link_css}/font-awesome.css" rel="stylesheet">
     <!-- Fancybox -->
-    <link rel="stylesheet" href="${link_css}/jquery.fancybox.min.css">
+    <link  href="${link_css}/jquery.fancybox.min.css" rel="stylesheet">
     <!-- Themify Icons -->
-    <link rel="stylesheet" href="${link_css}/themify-icons.css">
+    <link  href="${link_css}/themify-icons.css" rel="stylesheet">
     <!-- Nice Select CSS -->
-    <link rel="stylesheet" href="${link_css}/niceselect.css">
+    <link  href="${link_css}/niceselect.css" rel="stylesheet">
     <!-- Animate CSS -->
-    <link rel="stylesheet" href="${link_css}/animate.css">
+    <link   href="${link_css}/animate.css" rel="stylesheet">
     <!-- Flex Slider CSS -->
-    <link rel="stylesheet" href="${link_css}/flex-slider.min.css">
+    <link  href="${link_css}/flex-slider.min.css" rel="stylesheet">
     <!-- Owl Carousel -->
-    <link rel="stylesheet" href="${link_css}/owl-carousel.css">
+    <link href="${link_css}/owl-carousel.css" rel="stylesheet">
     <!-- Slicknav -->
-    <link rel="stylesheet" href="${link_css}/slicknav.min.css">
+    <link href="${link_css}/slicknav.min.css" rel="stylesheet">
 
     <!-- Eshop StyleSheet -->
-    <link rel="stylesheet" href="${link_css}/reset.css">
-    <link rel="stylesheet" href="${link_css}/style.css">
-    <link rel="stylesheet" href="${link_css}/responsive.css">
+    <link href="${link_css}/reset.css" rel="stylesheet">
+    <link href="${link_css}/style.css" rel="stylesheet">
+    <link href="${link_css}/responsive.css" rel="stylesheet" >
 
 
 </head>
@@ -1858,7 +1857,6 @@
 <!-- Bootstrap JS -->
 <script src="${link_js}/bootstrap.min.js"></script>
 <!-- Color JS -->
-<script src="${link_js}/colors.js"></script>
 <!-- Slicknav JS -->
 <script src="${link_js}/slicknav.min.js"></script>
 <!-- Owl Carousel JS -->
