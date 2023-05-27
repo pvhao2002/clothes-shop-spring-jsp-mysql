@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <c:set var="link_css" value="/web/css"/>
 <c:set var="link_js" value="/web/js"/>
 <c:set var="link_img" value="/web/images"/>
@@ -31,6 +30,15 @@
     <link rel="stylesheet" href="${link_css}/style.css" rel="stylesheet">
     <link rel="stylesheet" href="${link_css}/responsive.css" rel="stylesheet">
     <link rel="stylesheet" href="${link_css}/login.css" rel="stylesheet">
+    <style>
+        .error {
+            color: red;
+            width: 100%;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
 
@@ -74,46 +82,34 @@
 
 
 <%--Main--%>
-<section id="content-login" style="height: 120vh;">
+<section id="content-login" style="height: 140vh;">
     <%--@elvariable id="userForm" type=""--%>
     <form:form method="post" modelAttribute="userForm" class="form-login">
         <h1>Đăng ký</h1>
-        <spring:bind path="name">
-            <label>Họ và Tên</label>
-            <form:input type="text" path="name" name="name" placeholder="Nhập họ và tên"></form:input>
-            <form:errors path="name"></form:errors>
-        </spring:bind>
+        <label>Họ và Tên</label>
+        <form:input type="text" path="name" name="name" placeholder="Nhập họ và tên" required="required"/>
+        <form:errors path="name" class="error"/>
+
+        <label>Tên đăng nhập</label>
+        <form:input type="text" name="username" path="username" placeholder="Nhập tên đăng nhập" required="required"/>
+        <form:errors path="username" class="error" />
+
+        <label>Mật khẩu</label>
+        <form:input type="password" path="password" class="pass" name="password" placeholder="Nhập mật khẩu" required="required"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}"
+                    title="Mật khẩu phải từ 8 ký tự trở lên, chứa ít nhất 1 ký tự viết hoa, 1 ký tự số và nằm trong a-z A-z 0-9"/>
+        <form:errors path="password" class="error" />
 
 
-        <spring:bind path="username">
-            <label>Tên đăng nhập</label>
-            <form:input type="text" name="username" path="username" placeholder="Nhập tên đăng nhập"
-            ></form:input>
-            <form:errors path="username"></form:errors>
-        </spring:bind>
-
-        <spring:bind path="password">
-            <label>Mật khẩu</label>
-            <form:input type="password" path="password" name="password" placeholder="Nhập mật khẩu"
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}"
-                        title="Mật khẩu phải từ 8 ký tự trở lên, chứa ít nhất 1 ký tự viết hoa, 1 ký tự số và nằm trong a-z A-z 0-9"
-            ></form:input>
-            <fomr:errors path="password"></fomr:errors>
-        </spring:bind>
-
-
-        <spring:bind path="confirmPassword">
-            <label>Nhập lại mật khẩu</label>
-            <form:input type="password" path="confirmPassword" name="password" placeholder="Nhập lại mật khẩu"
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}"
-                        title="Mật khẩu phải từ 8 ký tự trở lên, chứa ít nhất 1 ký tự viết hoa, 1 ký tự số và nằm trong a-z A-z 0-9"
-            ></form:input>
-            <form:errors path="confirmPassword"></form:errors>
-        </spring:bind>
-
+        <label>Nhập lại mật khẩu</label>
+        <form:input type="password" class="pass" path="confirmPassword" name="confirmPassword" required="required"
+                    placeholder="Nhập lại mật khẩu"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}"
+                    title="Mật khẩu phải từ 8 ký tự trở lên, chứa ít nhất 1 ký tự viết hoa, 1 ký tự số và nằm trong a-z A-z 0-9"/>
+        <form:errors path="confirmPassword" class="error" />
 
         <div class="show-password">
-            <input type="checkbox" name="show-password"/>
+            <input type="checkbox" name="show-password" onclick="showPass();"/>
             <label>Hiện mật khẩu</label>
         </div>
         <input type="submit" value="Đăng ký">
@@ -160,13 +156,16 @@
 <!-- Active JS -->
 <script src="${link_js}/active.js"></script>
 <script>
-    // Get the password input element
-    const passwordInput = document.querySelector('input[name="checkbox"]');
-    // Function to toggle the password visibility
-    togglePassword.addEventListener('click', function () {
-        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
-    });
+    function showPass() {
+        const inputPassword = document.getElementsByClassName("pass")
+        Array.from(inputPassword).forEach(e => {
+            if (e.type === "password") {
+                e.type = "text";
+            } else {
+                e.type = "password";
+            }
+        });
+    }
 </script>
 
 </body>

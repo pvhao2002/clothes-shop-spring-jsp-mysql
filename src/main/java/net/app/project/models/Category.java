@@ -14,4 +14,8 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int categoryId;
     private String categoryName;
+
+    public Category(String categoryName) {
+        this.categoryName = categoryName.trim();
+    }
 }
