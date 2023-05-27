@@ -25,7 +25,7 @@ public class AuthencationConfig implements AuthenticationSuccessHandler {
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         authorities.forEach(authority -> {
             // nếu quyền có vai trò user, chuyển đến trang "/" nếu login thành công
-            if (authority.getAuthority().equals("ROLE_MEMBER")) {
+            if (authority.getAuthority().equals("ROLE_USER")) {
                 try {
                     redirectStrategy.sendRedirect(request, response, "/");
                 } catch (Exception e) {
@@ -34,13 +34,19 @@ public class AuthencationConfig implements AuthenticationSuccessHandler {
                 }
             } else if (authority.getAuthority().contains("ROLE_ADMIN")) {
                 try {
+                    System.out.println(authority.getAuthority());
                     redirectStrategy.sendRedirect(request, response, "/admin");
                 } catch (Exception e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             } else {
-                throw new IllegalStateException();
+                try {
+                    System.out.println(authority.getAuthority());
+                    redirectStrategy.sendRedirect(request, response, "/login");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 

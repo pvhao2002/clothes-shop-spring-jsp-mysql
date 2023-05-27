@@ -26,19 +26,19 @@ public class DataSeeder implements ApplicationListener<ContextRefreshedEvent> {
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         // add role
-        if(roleRepository.findByRoleName("ROLE_ADMIN") == null) {
-            Role role  = new Role();
+        if (roleRepository.findByRoleName("ROLE_ADMIN") == null) {
+            Role role = new Role();
             role.setRoleName("ROLE_ADMIN");
             roleRepository.save(role);
         }
-        if(roleRepository.findByRoleName("ROLE_USER") == null) {
-            Role role  = new Role();
+        if (roleRepository.findByRoleName("ROLE_USER") == null) {
+            Role role = new Role();
             role.setRoleName("ROLE_USER");
             roleRepository.save(role);
         }
 
         // add user
-        if(userRepository.findByUsername("admin") == null) {
+        if (userRepository.findByUsername("admin") == null) {
             User user = new User();
             user.setUsername("admin");
             user.setName("Quản trị viên");
@@ -46,16 +46,5 @@ public class DataSeeder implements ApplicationListener<ContextRefreshedEvent> {
             user.setRole(roleRepository.findByRoleName("ROLE_ADMIN"));
             userRepository.save(user);
         }
-
-        if(userRepository.findByUsername("user") == null) {
-            User user = new User();
-            user.setUsername("user");
-            user.setName("Người dùng");
-            user.setPassword(new BCryptPasswordEncoder().encode("123456Ab"));
-            user.setRole(roleRepository.findByRoleName("ROLE_USER"));
-            userRepository.save(user);
-        }
-
-
     }
 }

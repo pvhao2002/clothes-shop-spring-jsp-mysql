@@ -33,6 +33,14 @@
     <link href="${link_css}/style.css" rel="stylesheet">
     <link href="${link_css}/responsive.css" rel="stylesheet">
     <link href="${link_css}/login.css" rel="stylesheet">
+    <style>
+        .error{
+            color: red;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
@@ -78,7 +86,6 @@
 <section id="content-login" style="height: 90vh;">
     <form action="/login" method="post" class="form-login">
         <h1>Đăng nhập</h1>
-        <span>${message}</span>
         <label>Tên đăng nhập</label>
         <input type="text" name="username" placeholder="Nhập tên đăng nhập" required/>
         <label>Mật khẩu</label>
@@ -86,7 +93,7 @@
                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}"
                title="Mật khẩu phải từ 8 ký tự trở lên, chứa ít nhất 1 ký tự viết hoa, 1 ký tự số và nằm trong a-z A-z 0-9"
                required/>
-        <span>${error}</span>
+        <span class="error">${error}</span>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
         <div class="show-password">

@@ -26,10 +26,10 @@ public class UserValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "NotEmpty");
         if (userService.findByUsername(user.getUsername()) != null) {
-            errors.rejectValue("username", "Tên tài khoản đã tồn tại.");
+            errors.rejectValue("username", "error.password","Tên tài khoản đã tồn tại.");
         }
         if (!user.getConfirmPassword().equals(user.getPassword())) {
-            errors.rejectValue("confirmPassword", "Mật khẩu xác nhận không khớp.");
+            errors.rejectValue("confirmPassword","error.confirmPassword" ,"Mật khẩu xác nhận không khớp.");
         }
     }
 }

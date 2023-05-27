@@ -20,3 +20,9 @@ tr:nth-child(even) {
 tr:nth-child(odd) {
   background: #bbbbbb;
 }
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px; /* Adjust the max-width to your desired length */
+}

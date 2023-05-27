@@ -19,7 +19,7 @@
           type="image/x-icon"
           href="https://inkythuatso.com/uploads/images/2021/12/logo-truong-dai-hoc-nong-lam-thai-nguyen-inkythuatso-01-24-16-11-04.jpg"/>
     <link href="${link_css}/admin-list.css" rel="stylesheet"/>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet"/>
 </head>
 <body class="sb-nav-fixed">
 <%--Navv--%>
@@ -38,30 +38,24 @@
                 <h1 class="mt-4">Trang chủ</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active">Trang chủ</li>
-                    <li class="breadcrumb-item active">Tài khoản</li>
+                    <li class="breadcrumb-item active">Loại</li>
                 </ol>
-                <a href="/admin/account/add" class="btn btn-primary add" style="margin-bottom: 20px;">Thêm mới</a>
+                <a href="/admin/category/add" class="btn btn-primary add" style="margin-bottom: 20px;">Thêm</a>
                 <table>
                     <tr>
-                        <th style="width: 15%;">Tên đăng nhập</th>
-                        <th style="width: 20%;">Mật khẩu</th>
-                        <th style="width: 15%;">Số điện thoại</th>
-                        <th style="width: 15%;">Họ tên</th>
-                        <th style="width: 20%;">Địa chỉ</th>
+                        <th style="width: 15%;">Mã loại</th>
+                        <th style="width: 20%;">Tên loại</th>
                         <th style="width: 15%;">Xử lý</th>
                     </tr>
-                    <c:forEach var="p" items="${listUser}">
+                    <c:forEach var="p" items="${listCategory}">
                         <tr>
-                            <td>${p.username}</td>
-                            <td class="truncate">${p.password}</td>
-                            <td>${p.phone==null?"NULL":p.phone}</td>
-                            <td>${p.name}</td>
-                            <td class="truncate">${p.address==null?"NULL":p.address}</td>
+                            <td>${p.categoryId}</td>
+                            <td>${p.categoryName}</td>
                             <td>
-                                <a href="/admin/account/edit?id=${p.userId}" class="btn btn-success">Sửa</a>
+                                <a href="/admin/category/edit?id=${p.categoryId}" class="btn btn-success">Sửa</a>
                                 <a
-                                        href="/admin/account/delete?id=${p.userId}"
-                                        onclick="if(!(confirm('Bạn có muốn xóa người dùng này không?'))) return false"
+                                        href="/admin/category/delete?id=${p.categoryId}"
+                                        onclick="if(!(confirm('Bạn có muốn xóa loại sản phẩm này không?'))) return false"
                                         class="btn btn-danger"
                                 >Xóa</a
                                 >
