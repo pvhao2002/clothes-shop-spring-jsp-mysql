@@ -23,7 +23,12 @@
                             <li><i class="ti-location-pin"></i>Địa chỉ</li>
                             <li><i class="ti-alarm-clock"></i>Khuyến mãi</li>
                             <li><i class="ti-user"></i>Tài khoản</li>
-                            <li><i class="ti-power-off"></i><a href="/login">Đăng nhập</a></li>
+                            <c:if test="${user != null}">
+                                <li><i class="ti-power-off"></i><a href="/logout">Đăng xuất</a></li>
+                            </c:if>
+                            <c:if test="${user == null}">
+                                <li><i class="ti-power-off"></i><a href="/login">Đăng nhập</a></li>
+                            </c:if>
                         </ul>
                     </div>
                     <!-- End Top Right -->

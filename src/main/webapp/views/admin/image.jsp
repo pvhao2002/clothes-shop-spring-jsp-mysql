@@ -47,6 +47,7 @@
             <th style="width: 20%;">Hình ảnh</th>
             <th style="width: 15%;">Xử lý</th>
           </tr>
+          <jsp:useBean id="listImage" scope="request" type="java.util.List"/>
           <c:forEach var="p" items="${listImage}">
             <tr>
               <td>${p.imageId}</td>

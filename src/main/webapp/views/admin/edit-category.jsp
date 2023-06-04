@@ -43,22 +43,22 @@
         <h1 class="mt-4">Trang chủ</h1>
         <ol class="breadcrumb mb-4">
           <li class="breadcrumb-item active">Trang chủ</li>
-          <li class="breadcrumb-item active">Hình ảnh</li>
+          <li class="breadcrumb-item active">Loại sản phẩm</li>
           <li class="breadcrumb-item active">Thêm</li>
         </ol>
         <hr/>
         <section id="content" class="container">
-          <%--@elvariable id="image" type=""--%>
-          <form method="post" action="/admin/image/add" enctype="multipart/form-data">
+          <%--@elvariable id="cate" type=""--%>
+          <form:form method="post" modelAttribute="cate" enctype="multipart/form-data">
             <h1 class="heading">Form nhập thông tin</h1>
             <hr>
-            <label><b>Hình ảnh</b></label>
-            <input type="file" name="imageUrl" required="required" accept="image/*"/>
+            <label><b>Tên loại sản phẩm</b></label>
+            <form:input type="text" path="categoryName" placeholder="Nhập tên loại sản phẩm" name="categoryName" required="required"/>
 
             <div class="clearfix">
               <input type="submit" name="add" value="Thêm" class="btnAdd"></input>
             </div>
-          </form>
+          </form:form>
         </section>
       </div>
     </main>
