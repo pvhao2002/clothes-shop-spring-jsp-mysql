@@ -10,7 +10,9 @@ import org.springframework.web.multipart.MultipartFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -28,7 +30,7 @@ public class ImageService {
     }
     public void save(MultipartFile file){
         try {
-            Files.copy(file.getInputStream(), root.resolve(file.getOriginalFilename()));
+            Files.copy(file.getInputStream(), root.resolve(Objects.requireNonNull(file.getOriginalFilename())), StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -56,6 +58,14 @@ public class ImageService {
         Optional<Image> img = imageRepository.findById(id);
         if (img.isPresent()) {
             imageRepository.deleteById(id);
+        }
+    }
+
+    public void edit(Integer id, String s) {
+        Optional<Image> image = imageRepository.findById(id);
+        if (image.isPresent()) {
+            image.get().setImageUrl(s);
+            imageRepository.save(image.get());
         }
     }
 }

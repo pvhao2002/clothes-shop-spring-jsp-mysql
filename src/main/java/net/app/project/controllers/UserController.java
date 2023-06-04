@@ -9,6 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,11 @@ public class UserController {
     private UserValidator userValidator;
 
     @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
-    public String home() {
+    public String home(ModelMap model) {
+        User u = getCurrentUser();
+        if (u!= null) {
+            model.addAttribute("user", u);
+        }
         return "client/index";
     }
     public User getCurrentUser() {
