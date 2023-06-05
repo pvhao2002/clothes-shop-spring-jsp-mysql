@@ -19,6 +19,7 @@ public class UserValidator implements Validator {
         return User.class.equals(clazz);
     }
 
+    // check valid in client register
     @Override
     public void validate(Object target, Errors errors) {
         User user = (User) target;

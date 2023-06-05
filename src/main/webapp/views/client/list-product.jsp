@@ -52,35 +52,12 @@
 
 </head>
 <body class="js">
-
 <!-- Preloader -->
 <jsp:include page="preload.jsp"/>
 <!-- End Preloader -->
-
 <!-- Header -->
 <jsp:include page="header.jsp"/>
 <!--/ End Header -->
-
-<!-- Slider Area -->
-<section class="hero-slider">
-    <!-- Single Slider -->
-    <div class="single-slider">
-        <div class="container">
-            <div class="row no-gutters">
-                <div class="col-lg-9 offset-lg-3 col-12">
-                    <div class="text-inner">
-                        <div class="row">
-                            <div class="col-lg-7 col-12">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--/ End Single Slider -->
-</section>
-<!--/ End Slider Area -->
 
 <!-- Start Product Area -->
 <div class="product-area section">
@@ -88,7 +65,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-title">
-                    <h2>Trending sản phẩm</h2>
+                    <h2>Danh sách sản phẩm</h2>
                 </div>
             </div>
         </div>
@@ -100,11 +77,11 @@
                         <div class="tab-pane fade show active" id="man" role="tabpanel">
                             <div class="tab-single">
                                 <div class="row">
-                                    <c:forEach items="${trendingItem}" var="pTrend">
+                                    <c:forEach items="${listProduct}" var="pTrend">
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
-                                                <div class="product-img" >
-                                                    <a href="#.">
+                                                <div class="product-img">
+                                                    <a href="/product/detail/id=${pTrend.productId}">
                                                         <img class="default-img"
                                                              style="height: 250px; width: 250px;"
                                                              src="${pTrend.image.imageUrl}"
@@ -117,7 +94,9 @@
                                                     <div class="button-head">
                                                         <div class="product-action">
                                                             <a data-toggle="modal" data-target="#exampleModal"
-                                                               title="Quick View" href="#."><i class=" ti-eye"></i><span>Xem sản phẩm</span></a>
+                                                               title="Quick View"
+                                                               href="/product/detail/id=${pTrend.productId}"><i
+                                                                    class=" ti-eye"></i><span>Xem sản phẩm</span></a>
                                                         </div>
                                                         <div class="product-action-2">
                                                             <a title="Add to cart" href="#">Thêm vào giỏ hàng</a>
@@ -125,7 +104,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">${pTrend.category.categoryName}</a></h3>
+                                                    <h3>
+                                                        <a href="/products/item?id=${pTrend.productId}">${pTrend.category.categoryName}</a>
+                                                    </h3>
                                                     <div class="product-price">
                                                         <span>
                                                             <fmt:formatNumber value="${pTrend.price}" type="currency"/>
@@ -139,7 +120,6 @@
                             </div>
                         </div>
                         <!--/ End Single Tab -->
-
                         <!--/ End Single Tab -->
                     </div>
                 </div>
@@ -149,77 +129,18 @@
 </div>
 <!-- End Product Area -->
 
-<!-- Start Shop Services Area -->
-<section class="shop-services section home">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Service -->
-                <div class="single-service">
-                    <i class="ti-rocket"></i>
-                    <h4>Miễn phí giao hàng</h4>
-                    <p>Hóa đơn trên 200,000đ</p>
-                </div>
-                <!-- End Single Service -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Service -->
-                <div class="single-service">
-                    <i class="ti-reload"></i>
-                    <h4>Hoàn hàng miễn phí</h4>
-                    <p>Đổi trả trong 30ngày</p>
-                </div>
-                <!-- End Single Service -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Service -->
-                <div class="single-service">
-                    <i class="ti-lock"></i>
-                    <h4>Thanh toán tiện lợi</h4>
-                    <p>Nhiều phương thức thanh toán</p>
-                </div>
-                <!-- End Single Service -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Service -->
-                <div class="single-service">
-                    <i class="ti-tag"></i>
-                    <h4>Giá tốt nhất</h4>
-                    <p>Có nhiều chương trình ưu đãi</p>
-                </div>
-                <!-- End Single Service -->
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Shop Services Area -->
-
-<!-- Start Shop Newsletter  -->
-<section class="shop-newsletter section">
-    <div class="container">
-        <div class="inner-top">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2 col-12">
-                    <!-- Start Newsletter Inner -->
-                    <div class="inner">
-                        <h4>Quan tâm</h4>
-                        <p>Điền thông tin để nhận thông tin khuyến mãi <span>10%</span> với đơn hàng đầu tiên</p>
-                        <form method="get" class="newsletter-inner">
-                            <input name="EMAIL" placeholder="Your email address" required="" type="email">
-                            <button onclick="return false;" class="btn">Đăng ký</button>
-                        </form>
-                    </div>
-                    <!-- End Newsletter Inner -->
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Shop Newsletter -->
-
 <!-- Start Footer Area -->
 <jsp:include page="footer.jsp"/>
 <!-- /End Footer Area -->
+
+<script>
+    const listItems = document.querySelectorAll("#navbar-nav li");
+    // Set the class "active" to the second list item (index 1)
+    listItems[0].classList.remove("active");
+    listItems[1].classList.add("active");
+
+</script>
+
 
 <!-- Jquery -->
 <script src="${link_js}/jquery.min.js"></script>

@@ -15,13 +15,12 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int productId;
     private String name;
+
+    @Column(columnDefinition = "varchar(2000)") // Set maximum length to 2000
     private String description;
     private double price;
 
-    @ManyToOne
-    @JoinColumn(name = "imageId")
-    private Image image;
-
+    private String imageUrl;
     @ManyToOne
     @JoinColumn(name = "categoryId")
     private Category category;

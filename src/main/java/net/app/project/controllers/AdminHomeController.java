@@ -10,10 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
 @Controller
 @RequestMapping("/admin")
-public class HomeAdminController {
+public class AdminHomeController {
 
     @Autowired
     private UserService userService;
@@ -26,7 +25,9 @@ public class HomeAdminController {
         return "admin/index";
     }
 
+    // Request
 
+    // /admin/account
     @GetMapping("/account")
     public String account(Model model) {
         model.addAttribute("listUser", userService.findAllUsers());
@@ -49,6 +50,8 @@ public class HomeAdminController {
         return "redirect:/admin/account";
     }
 
+
+    // put or patch
     @RequestMapping(value = "/account/edit", method = RequestMethod.GET)
     public String accountEdit(@RequestParam int id, ModelMap model) {
         User user = userService.findById(id);
