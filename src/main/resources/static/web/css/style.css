@@ -691,7 +691,7 @@ Version:1.0
 .header.shop .search-bar form {
     display: inline-block;
     float: left;
-    width: 260px;
+    width: 100%;
 }
 .header.shop .search-bar input {
     height: 48px;
@@ -702,7 +702,7 @@ Version:1.0
     font-size: 14px;
     font-weight: 400;
     padding: 0 25px 0 20px;
-    width: 328px;
+    width: 100%;
 }
 .header.shop .search-bar .btnn {
     height: 50px;
@@ -1018,12 +1018,13 @@ Version:1.0
     background:#F7941D;
 }
 .header.shop .right-bar {
-    display: inline-block;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
     padding: 0;
     margin: 0;
-    top: 20px;
-    float: right;
-    position: relative;
 }
 .header.shop .right-bar .sinlge-bar.top-search a {
     transform: translateY(3px);

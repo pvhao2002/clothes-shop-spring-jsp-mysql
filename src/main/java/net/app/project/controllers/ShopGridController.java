@@ -25,7 +25,6 @@ public class ShopGridController {
 
     @RequestMapping(value = "/item", method = RequestMethod.GET)
     public String productDetail(@RequestParam("id") int id, ModelMap model) {
-
         Product product = productService.findById(id);
         model.addAttribute("pTrend", product);
         return "client/pDetail";

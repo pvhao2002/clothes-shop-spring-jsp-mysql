@@ -35,6 +35,9 @@ public class SercurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/signup").permitAll()
                 .antMatchers("/").permitAll()
+                .antMatchers("/products/**", "/search/**").permitAll()
+                .antMatchers("/blog/**").permitAll()
+                .antMatchers("/cart/**", "/profile/**").authenticated()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/resources/**",
                         "/static/**",
@@ -57,6 +60,7 @@ public class SercurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/login?logout");
 
     }
+
     @Bean
     @Override
     protected AuthenticationManager authenticationManager() throws Exception {

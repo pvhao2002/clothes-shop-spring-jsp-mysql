@@ -37,7 +37,7 @@ public class HomeController {
         if (u != null) {
             model.addAttribute("user", u);
         }
-        model.addAttribute("categories", categoryService.findAll());
+        model.addAttribute("categories", categoryService.findTop7ByOrderByCategoryIdDesc());
         model.addAttribute("trendingItem", productService.findTop8ByOrderByProductIdDesc());
         return "client/index";
     }

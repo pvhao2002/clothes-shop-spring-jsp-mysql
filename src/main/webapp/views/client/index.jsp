@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!doctype html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="link_css" value="/web/css"/>
@@ -104,20 +103,20 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img" >
-                                                    <a href="#.">
+                                                    <a href="/products/item?id=${pTrend.productId}">
                                                         <img class="default-img"
                                                              style="height: 250px; width: 250px;"
-                                                             src="${pTrend.image.imageUrl}"
+                                                             src="${pTrend.imageUrl}"
                                                              alt="E-Shop">
                                                         <img class="hover-img"
                                                              style="height: 750px; width: 550px;"
-                                                             src="${pTrend.image.imageUrl}"
+                                                             src="${pTrend.imageUrl}"
                                                              alt="E-Shop">
                                                     </a>
                                                     <div class="button-head">
                                                         <div class="product-action">
                                                             <a data-toggle="modal" data-target="#exampleModal"
-                                                               title="Quick View" href="#."><i class=" ti-eye"></i><span>Xem sản phẩm</span></a>
+                                                               title="Quick View" href="/products/item?id=${pTrend.productId}"><i class=" ti-eye"></i><span>Xem sản phẩm</span></a>
                                                         </div>
                                                         <div class="product-action-2">
                                                             <a title="Add to cart" href="#">Thêm vào giỏ hàng</a>
@@ -125,7 +124,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">${pTrend.category.categoryName}</a></h3>
+                                                    <h3><a href="/products/item?id=${pTrend.productId}">${pTrend.category.categoryName}</a></h3>
                                                     <div class="product-price">
                                                         <span>
                                                             <fmt:formatNumber value="${pTrend.price}" type="currency"/>
