@@ -50,31 +50,24 @@
                     <!--/ End Search Form -->
                     <div class="mobile-nav"></div>
                 </div>
-                <div class="col-lg-8 col-md-7 col-12">
+                <div class="col-lg-7 col-md-7 col-12">
                     <div class="search-bar-top">
                         <div class="search-bar">
-                            <select>
-                                <option selected="selected">Tất cả</option>
-                            </select>
-                            <form>
-                                <input name="search" placeholder="Tìm kiếm sản phẩm....." type="search">
+                            <form action="/search/name" method="get">
+                                <input name="name" placeholder="Tìm kiếm sản phẩm....." type="search">
                                 <button class="btnn"><i class="ti-search"></i></button>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-12">
+                <div class="col-lg-3 col-md-3 col-12">
                     <div class="right-bar">
                         <!-- Search Form -->
                         <div class="sinlge-bar">
-                            <a href="#" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        </div>
-                        <div class="sinlge-bar">
-                            <a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                            <a href="/profile" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Tài khoản</a>
                         </div>
                         <div class="sinlge-bar shopping">
-                            <a href="#" class="single-icon"><i class="ti-bag"></i> <span
-                                    class="total-count">2</span></a>
+                            <a href="/cart" class="single-icon"><i class="ti-bag"></i> Giỏ hàng</a>
                             <!-- Shopping Item -->
                             <!--/ End Shopping Item -->
                         </div>
@@ -95,7 +88,7 @@
                             <h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>Danh mục</h3>
                             <ul class="main-category">
                                 <c:forEach items="${categories}" var="category">
-                                    <li><a href="/category/${category.categoryId}">${category.categoryName}</a></li>
+                                    <li><a href="/search/cate?category=${category.categoryId}">${category.categoryName}</a></li>
                                 </c:forEach>
                             </ul>
                         </div>

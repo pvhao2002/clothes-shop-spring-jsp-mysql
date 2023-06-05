@@ -69,6 +69,18 @@
                 </div>
             </div>
         </div>
+        <c:if test="${listProduct == null || listProduct.size() == 0}">
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-danger" role="alert">
+                        <h4 class="alert-heading">Không tìm thấy sản phẩm nào!</h4>
+                        <p>Sản phẩm thuộc mặt hàng này đang tạm ngưng.</p>
+                        <hr>
+                        <p class="mb-0">Vui lòng thử lại với từ khóa khác.</p>
+                    </div>
+                </div>
+            </div>
+        </c:if>
         <div class="row">
             <div class="col-12">
                 <div class="product-info">
@@ -81,21 +93,19 @@
                                         <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                             <div class="single-product">
                                                 <div class="product-img">
-                                                    <a href="/product/detail/id=${pTrend.productId}">
+                                                    <a href="/products/item?id=${pTrend.productId}">
                                                         <img class="default-img"
-                                                             style="height: 250px; width: 250px;"
-                                                             src="${pTrend.image.imageUrl}"
+                                                             src="${pTrend.imageUrl}"
                                                              alt="E-Shop">
                                                         <img class="hover-img"
-                                                             style="height: 750px; width: 550px;"
-                                                             src="${pTrend.image.imageUrl}"
+                                                             src="${pTrend.imageUrl}"
                                                              alt="E-Shop">
                                                     </a>
                                                     <div class="button-head">
                                                         <div class="product-action">
                                                             <a data-toggle="modal" data-target="#exampleModal"
                                                                title="Quick View"
-                                                               href="/product/detail/id=${pTrend.productId}"><i
+                                                               href="/products/item?id=${pTrend.productId}"><i
                                                                     class=" ti-eye"></i><span>Xem sản phẩm</span></a>
                                                         </div>
                                                         <div class="product-action-2">

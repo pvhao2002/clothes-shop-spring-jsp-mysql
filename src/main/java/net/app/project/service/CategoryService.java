@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CategoryService {
@@ -26,6 +27,14 @@ public class CategoryService {
     }
     public Category save(Category category){
         return categoryRepository.save(category);
+    }
+
+    public List<Category> findTop7ByOrderByCategoryIdDesc(){
+        return categoryRepository
+                .findTop7ByOrderByCategoryIdDesc()
+                .stream()
+                .limit(7)
+                .collect(Collectors.toList());
     }
     public void delete(int id){
         Optional<Category> category = categoryRepository.findById(id);

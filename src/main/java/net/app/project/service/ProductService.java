@@ -27,13 +27,15 @@ public class ProductService {
     private final Path root = Paths.get("src/main/resources/static/web/images");
     @Autowired
     private CategoryService categoryService;
-    public void save(MultipartFile file){
+
+    public void save(MultipartFile file) {
         try {
             Files.copy(file.getInputStream(), root.resolve(Objects.requireNonNull(file.getOriginalFilename())), StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public void add(ProductDTO productDto) {
         Product product = new Product();
         product.setName(productDto.getName());
@@ -67,8 +69,8 @@ public class ProductService {
         productRepository.save(product);
     }
 
-    public List<Product> findByCategory(String category) {
-        return productRepository.findByCategory(category);
+    public List<Product> findByCategory(int category) {
+        return productRepository.findByCategory(categoryService.findById(category).get());
     }
 
     public List<Product> findByCategoryAndPrice(String category, double price) {
@@ -101,5 +103,13 @@ public class ProductService {
                 .stream()
                 .limit(12)
                 .collect(Collectors.toList());
+    }
+
+    public List<Product> findByName(String name) {
+        try {
+            return productRepository.findByNameContaining(name);
+        } catch (Exception e) {
+            return null;
+        }
     }
 }
