@@ -43,21 +43,44 @@
                 <h1 class="mt-4">Trang chủ</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active">Trang chủ</li>
-                    <li class="breadcrumb-item active">Hình ảnh</li>
-                    <li class="breadcrumb-item active">Chỉnh sửa</li>
+                    <li class="breadcrumb-item active">Tài khoản</li>
+                    <li class="breadcrumb-item active">Sửa sản phẩm</li>
                 </ol>
                 <hr/>
                 <section id="content" class="container">
-                    <%--@elvariable id="image" type=""--%>
-                    <form:form method="post" modelAttribute="image" enctype="multipart/form-data">
-                        <form:hidden path="imageId"/>
-                        <form:label path="imageUrl">Hình ảnh</form:label>
-                        <form:input path="imageUrl" type="file" required="required" accept="image/*"/>
-                        <form:errors path="imageUrl" cssClass="error"/>
+                    <%--@elvariable id="user" type=""--%>
+                    <form method="post" action="/admin/product/edit" enctype="multipart/form-data">
+                        <h1 class="heading">Form nhập thông tin</h1>
+                        <hr>
+                        <input type="hidden" name="productId" value="${product.productId}">
+
+                        <label><b>Tên sản phẩm</b></label>
+                        <input type="text" placeholder="Nhập tên sản phẩm" value="${product.name}" name="name"
+                               required="required"/>
+
+                        <label><b>Giá sản phẩm</b></label>
+                        <input type="number" placeholder="Nhập giá sản phẩm" value="${product.price}" name="price"
+                               required="required"/>
+
+
+                        <label><b>Mô tả sản phẩm</b></label>
+                        <textarea name="description" required="required" rows="4">${product.description}</textarea>
+
+                        <label><b>Thể loại</b></label>
+                        <select name="categoryId" required="required">
+                            <c:forEach items="${categories}" var="cate">
+                                <option value="${cate.categoryId}" ${product.category.categoryId eq cate.categoryId ? 'selected' : ''}>
+                                        ${cate.categoryName}
+                                </option>
+                            </c:forEach>
+                        </select>
+
+                        <label><b>Hình ảnh</b></label>
+                        <input type="file"  name="imageUrl" accept="image/*" required="required"/>
                         <div class="clearfix">
-                            <input type="submit" name="add" value="Sửa" class="btnAdd"/>
+                            <input type="submit" name="add" value="Sửa" class="btnAdd"></input>
                         </div>
-                    </form:form>
+                    </form>
                 </section>
             </div>
         </main>

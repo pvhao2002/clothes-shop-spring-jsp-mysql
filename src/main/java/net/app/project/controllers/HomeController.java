@@ -2,6 +2,8 @@ package net.app.project.controllers;
 
 
 import net.app.project.models.User;
+import net.app.project.service.CategoryService;
+import net.app.project.service.ProductService;
 import net.app.project.service.UserService;
 import net.app.project.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class UserController {
+public class HomeController {
 
     @Autowired
     private UserService userService;
@@ -22,18 +24,29 @@ public class UserController {
     @Autowired
     private UserValidator userValidator;
 
+    @Autowired
+    private CategoryService categoryService;
+
+
+    @Autowired
+    private ProductService productService;
+
     @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
     public String home(ModelMap model) {
         User u = getCurrentUser();
-        if (u!= null) {
+        if (u != null) {
             model.addAttribute("user", u);
         }
+        model.addAttribute("categories", categoryService.findAll());
+        model.addAttribute("trendingItem", productService.findTop8ByOrderByProductIdDesc());
         return "client/index";
     }
+
     public User getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return userService.findByUsername(authentication.getName());
     }
+
     @GetMapping("/signup")
     public String signup(Model model) {
         model.addAttribute("userForm", new User());
@@ -59,5 +72,14 @@ public class UserController {
             model.addAttribute("logout", "Bạn đăng xuất thành công");
         }
         return "client/login";
+    }
+
+    @GetMapping("/blog")
+    public String blog(ModelMap model) {
+        User u = getCurrentUser();
+        if (u != null) {
+            model.addAttribute("user", u);
+        }
+        return "client/blog";
     }
 }

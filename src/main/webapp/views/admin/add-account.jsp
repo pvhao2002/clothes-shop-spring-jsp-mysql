@@ -53,20 +53,29 @@
                         <h1 class="heading">Form nhập thông tin</h1>
                         <hr>
                         <label><b>Tên đăng nhập</b></label>
-                        <form:input type="text" path="username" placeholder="Nhập tên đăng nhập" name="username" required="required"/>
+                        <form:input type="text" path="username" placeholder="Nhập tên đăng nhập" name="username"
+                                    required="required"/>
                         <form:errors path="username" class="error"/>
 
                         <label><b>Mật khẩu</b></label>
-                        <form:input type="password" path="password" placeholder="Nhập mật khẩu" name="password" required="required"/>
+                        <form:input type="password" path="password"
+                                    placeholder="Nhập mật khẩu"
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}"
+                                    title="Mật khẩu phải từ 8 ký tự trở lên, chứa ít nhất 1 ký tự viết hoa, 1 ký tự số và nằm trong a-z A-z 0-9"
+                                    name="password" required="required"/>
                         <form:errors path="password" class="error"/>
 
                         <label><b>Xác nhận mật khẩu</b></label>
-                        <form:input type="password" path="confirmPassword" name="confirmPassword" required="required"
+                        <form:input type="password" path="confirmPassword"
+                                    name="confirmPassword" required="required"
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}"
+                                    title="Mật khẩu phải từ 8 ký tự trở lên, chứa ít nhất 1 ký tự viết hoa, 1 ký tự số và nằm trong a-z A-z 0-9"
                                     placeholder="Xác nhận mật khẩu"/>
                         <form:errors path="confirmPassword" class="error"/>
 
                         <label><b>Họ tên</b></label>
-                        <form:input type="text" path="name" name="name" placeholder="Nhập họ và tên" required="required"/>
+                        <form:input type="text" path="name" name="name" placeholder="Nhập họ và tên"
+                                    required="required"/>
                         <form:errors path="name" class="error"/>
 
                         <label><b>Số điện thoại</b></label>

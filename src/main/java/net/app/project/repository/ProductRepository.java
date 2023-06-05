@@ -3,5 +3,14 @@ package net.app.project.repository;
 import net.app.project.models.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 public interface ProductRepository extends JpaRepository<Product, Integer> {
+    List<Product> findByCategory(String category);
+
+    List<Product> findByCategoryAndPrice(String category, double price);
+
+    List<Product> findByPrice(double price);
+
+    List<Product> findTop8ByOrderByProductIdDesc();
 }

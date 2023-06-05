@@ -28,12 +28,6 @@
           </div>
           Thể loại
         </a>
-        <a class="nav-link" href="/admin/image">
-          <div class="sb-nav-link-icon">
-            <i class="fa fa-sharp fa-solid fa-chart-simple"></i>
-          </div>
-          Hình ảnh
-        </a>
       </div>
     </div>
     <div class="sb-sidenav-footer">
