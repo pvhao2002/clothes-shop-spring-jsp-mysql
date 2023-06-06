@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!doctype html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="link_css" value="/web/css"/>
@@ -109,7 +108,7 @@
                                                                     class=" ti-eye"></i><span>Xem sản phẩm</span></a>
                                                         </div>
                                                         <div class="product-action-2">
-                                                            <a title="Add to cart" href="#">Thêm vào giỏ hàng</a>
+                                                            <a title="Add to cart" href="/cart/add?pId=${pTrend.productId}">Thêm vào giỏ hàng</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -130,7 +129,6 @@
                             </div>
                         </div>
                         <!--/ End Single Tab -->
-                        <!--/ End Single Tab -->
                     </div>
                 </div>
             </div>
@@ -148,10 +146,7 @@
     // Set the class "active" to the second list item (index 1)
     listItems[0].classList.remove("active");
     listItems[1].classList.add("active");
-
 </script>
-
-
 <!-- Jquery -->
 <script src="${link_js}/jquery.min.js"></script>
 <script src="${link_js}/jquery-migrate-3.0.0.js"></script>

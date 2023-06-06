@@ -119,7 +119,7 @@
                                                                title="Quick View" href="/products/item?id=${pTrend.productId}"><i class=" ti-eye"></i><span>Xem sản phẩm</span></a>
                                                         </div>
                                                         <div class="product-action-2">
-                                                            <a title="Add to cart" href="#">Thêm vào giỏ hàng</a>
+                                                            <a title="Add to cart" href="/cart/add?pId=${pTrend.productId}">Thêm vào giỏ hàng</a>
                                                         </div>
                                                     </div>
                                                 </div>

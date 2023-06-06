@@ -18,12 +18,10 @@ public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int cartId;
-
     private double totalPrice;
     @OneToOne
     @JoinColumn(name = "userId")
     private User user;
-
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
     private Set<CartItem> cartItems = new HashSet<>();
 }
