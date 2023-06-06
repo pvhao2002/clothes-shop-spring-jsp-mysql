@@ -10,15 +10,12 @@ import org.springframework.validation.Validator;
 
 @Component
 public class UserValidator implements Validator {
-
     @Autowired
     private UserService userService;
-
     @Override
     public boolean supports(Class<?> clazz) {
         return User.class.equals(clazz);
     }
-
     // check valid in client register
     @Override
     public void validate(Object target, Errors errors) {

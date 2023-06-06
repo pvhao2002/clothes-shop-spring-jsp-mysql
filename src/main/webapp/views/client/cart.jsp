@@ -94,23 +94,34 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td class="image" data-title="No"><img src="https://via.placeholder.com/100x100" alt="#"></td>
-                        <td class="product-des" data-title="Description">
-                            <p class="product-name"><a href="#">Women Dress</a></p>
-                            <p class="product-des">Maboriosam in a tonto nesciung eget distingy magndapibus.</p>
-                        </td>
-                        <td class="price" data-title="Price"><span>$110.00 </span></td>
-                        <td class="qty" data-title="Qty"><!-- Input Order -->
-                            <div class="input-group">
-                                <input type="text" name="quant[1]" class="input-number" disabled data-min="1"
-                                       data-max="100" value="1">
-                            </div>
-                            <!--/ End Input Order -->
-                        </td>
-                        <td class="total-amount" data-title="Total"><span>$220.88</span></td>
-                        <td class="action" data-title="Remove"><a href="#"><i class="ti-trash remove-icon"></i></a></td>
-                    </tr>
+                    <c:forEach var="p" items="${cart}">
+                        <tr>
+                            <td class="image" data-title="No"><img src="${p.product.imageUrl}" alt="E-Shop">
+                            </td>
+                            <td class="product-des" data-title="Description">
+                                <p class="product-name"><a href="#">${p.product.name}</a></p>
+                            </td>
+                            <td class="price" data-title="Price">
+                                <span>
+                                    <fmt:formatNumber value="${p.product.price}" type="currency" currencyCode="VND"/>
+                                </span>
+                            </td>
+                            <td class="qty" data-title="Qty"><!-- Input Order -->
+                                <div class="input-group">
+                                    <input type="text" name="quant[1]" class="input-number" disabled data-min="1"
+                                           data-max="100" value="${p.quantity}">
+                                </div>
+                                <!--/ End Input Order -->
+                            </td>
+                            <td class="total-amount" data-title="Total">
+                                <span>
+                                    <fmt:formatNumber value="${p.totalPrice}" type="currency" currencyCode="VND"/>
+                                </span>
+                            </td>
+                            <td class="action" data-title="Remove"><a href="/cart/delete?id=${p.cartItemId}"><i class="ti-trash remove-icon"></i></a>
+                            </td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
                 <!--/ End Shopping Summery -->
@@ -127,13 +138,17 @@
                         <div class="col-lg-4 col-md-7 col-12">
                             <div class="right">
                                 <ul>
-                                    <li>Tổng tiền<span>$330.00</span></li>
+                                    <li>Tổng tiền<span>
+                                        <fmt:formatNumber value="${total}" type="currency" currencyCode="VND"/>
+                                    </span></li>
                                     <li>Shipping<span>Free</span></li>
-                                    <li class="last">Thành tiền<span>$310.00</span></li>
+                                    <li class="last">Thành tiền<span>
+                                        <fmt:formatNumber value="${total}" type="currency" currencyCode="VND"/>
+                                    </span></li>
                                 </ul>
                                 <div class="button5">
-                                    <a href="#" class="btn">Thanh toán</a>
-                                    <a href="#" class="btn">Tiếp tục mua sắm</a>
+                                    <a href="/cart/checkout" class="btn">Thanh toán</a>
+                                    <a href="/" class="btn">Tiếp tục mua sắm</a>
                                 </div>
                             </div>
                         </div>
